@@ -1,16 +1,20 @@
-# Three.js Journey
+# React three fiber
 
-## Setup
-Download [Node.js](https://nodejs.org/en/download/).
-Run this followed commands:
+R3F is a react renderer. We write JSX and it gets rendered into three.js.
 
-``` bash
-# Install dependencies (only the first time)
-npm install
+Ex : Creating a mesh composed of BoxGeometry and a MeshBasicMaterial
+<mesh>
+<BoxGeometry />
+<MeshBasicMaterial />
+</mesh>
 
-# Run the local server at localhost:8080
-npm run dev
+R3F sets the default parameter. We don't need to define it.
 
-# Build for production in the dist/ directory
-npm run build
-```
+## React three fiber setup
+
+    npm install three @types/three @react-three/fiber
+
+    The @ at the beginning means that it's part of a bigger system (which is called scope) named 'react-three'
+    /fiber is the part that we are currently importing or retrieving
+
+## The syntax
