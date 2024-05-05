@@ -69,3 +69,21 @@ R3F sets the default parameter. We don't need to define it.
     2. If it ends with "Geometry", it will be assigned to the 'geometry' property.
 
     Otherwise ref will be going to add() it.
+
+## Resizing Canvas
+
+    The <canvas> created by r3f will take the size of it's parent (the #root element).
+    We will make the root fill the viewport and do the same with the <html> and the <body>
+
+## Important points
+
+    1. We didn't have to create a Scene.
+    2. We didn't have to create the WebGLRenderer.
+    3. The scene is being rendered on each frame.
+    4. The default settings are making it look appealing(antialias, encoding, etc)
+    5. We didn't have to place a PerspectiveCamera.
+    6. We didn't have to pull it back from center.
+    7. When you resize the viewport, everything that needs resizing is handled automatically.
+    8. We didn't have to provide any specific value for the <torusKnotGeometry>
+    9. We didn't have to import the mesh nor the sphereGeometry, nor the MeshNormalMaterial.
+    10. We don't have to reload the page.
