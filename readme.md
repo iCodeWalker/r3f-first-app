@@ -208,3 +208,22 @@ R3F sets the default parameter. We don't need to define it.
 
     We didn't provide any normal to the geometry and the triangles don't know where they are oriented.
     Instead of calculating and sending our own normal attribute,  we can ask Three.js to do it with computeVertexNormals on BufferGeometry
+
+## Canvas Settings
+
+    The <Canvas> component is setting up bunch of things for us (scene, camera, renderer, antialias, encoding etc). so that it looks good with minimal effort.
+
+    These settings can be changed with the attributes right on the <Canvas>
+
+    1. Camera
+        Add camera attribute to the canvas and pass it a object
+        Animating the camera
+
+    2. Antialias
+        Antialias is on by default.
+        We can remove it by adding a gl attribute to the <Canvas> and send it an object, as we did with the camera
+    3. Alpha
+        The background of the renderer is tranparent
+    4. Pixel ratio
+        r3f handles the pixel ratio automatically, It's good practice to clamp it in order to avoid performance issues on devices with a vary high pixel ratio.
+        dpr ={1}
