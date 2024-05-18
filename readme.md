@@ -87,3 +87,23 @@ R3F sets the default parameter. We don't need to define it.
     8. We didn't have to provide any specific value for the <torusKnotGeometry>
     9. We didn't have to import the mesh nor the sphereGeometry, nor the MeshNormalMaterial.
     10. We don't have to reload the page.
+
+## three-fiber hooks
+
+    We can use hooks specific to react three fiber inside experience component.
+
+## Creating and handling meshes
+
+    1. We can create mesh without importing the these tags. This type of coding is called "declarative".
+    2. r3f will create the corresponding instances automatically and add them to the scene. (also created automatically)
+    3. We can try new geometry <sphereGeometry/> and material <meshBasicMaterial/>
+
+        sphereGeometry :
+            The first three parameters of SphereGeometry are radius, widthSegments and heightSegments
+            r3f provides the default values to this parameters but we can change them.
+            We can change the constructor parameters by providing an array to the "args" attributes and follow the parameters order(radius, widthSegments, heightSegments)
+
+            In case of geometry, we must be careful with the values of radius, widthSegment and heightSegment, we must not update these values too much or animate them, because each change will result in a whole new geometry built again. It is not good for performance.
+
+        meshBasicMaterial :
+            meshBasicMaterial only requires one parameter and it's an object.
