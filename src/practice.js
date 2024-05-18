@@ -28,12 +28,18 @@ export default function Practice() {
 
   return (
     <>
+      {/* Orbital control */}
       <orbitControls args={[camera, gl.domElement]} />
+      {/* Directional Lights */}
+      <directionalLight position={[1, 2, 3]} />
+      {/* Ambient Light */}
+      <ambientLight intensity={0.5} />
 
       <group ref={groupRef}>
         <mesh position-x={-2}>
           <sphereGeometry />
-          <meshBasicMaterial color="orange" />
+          {/* <meshBasicMaterial color="orange" /> */}
+          <meshStandardMaterial color="orange" />
         </mesh>
         <mesh
           ref={cubeRef}
@@ -42,13 +48,15 @@ export default function Practice() {
           rotation-y={Math.PI * 0.25}
         >
           <boxGeometry />
-          <meshBasicMaterial color="mediumpurple" />
+          {/* <meshBasicMaterial color="mediumpurple" /> */}
+          <meshStandardMaterial color="mediumpurple" />
         </mesh>
       </group>
 
       <mesh position-y={-1.15} scale={10} rotation-x={-Math.PI * 0.5}>
         <planeGeometry />
-        <meshBasicMaterial color="green" />
+        {/* <meshBasicMaterial color="green" /> */}
+        <meshStandardMaterial color="green" />
       </mesh>
     </>
   );

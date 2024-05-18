@@ -153,3 +153,17 @@ R3F sets the default parameter. We don't need to define it.
     extend function will automatically convert a Three.js class into a declarative version and make it available in JSX.
 
     orbital control requires camera and the canvas, but it is not available to us at component level, it is availble inside the useFrame but we don't want to create orbital control on every frame. We just want to get them at the beginning. For this we can use a hook useThree().
+
+## Lights
+
+    Directional light
+    meshBasicMaterial does not need any light, light has no effect on it.
+
+    So to see any effectof light we need to change the material. Ex : meshStandardMaterial.
+
+    By deafult the light comes from straight above, We can change this with the position property
+      <directionalLight  position={[1,2,3]}/>
+      We can also change the color and the intensity
+
+    The core shadow (back part of the object) are little too dark, We can add an ambient light for that.
+    <ambientLight />
