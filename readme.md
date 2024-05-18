@@ -107,3 +107,16 @@ R3F sets the default parameter. We don't need to define it.
 
         meshBasicMaterial :
             meshBasicMaterial only requires one parameter and it's an object.
+
+## Mesh
+
+    Like we changed the color and wireframe on the material, we can customise the position, rotation and scale on the mesh.
+        Scale:
+        scale = {[x,y,z]} , doing this is similar to mesh.scale.set(3,2,1). Can also use scale = {1.5}
+
+        Position:
+        position = {[2,0,0]},
+        We can target specific axes with, position-x = {2}
+
+        Rotation:
+        rotation-y = {Math.PI * 0.25}

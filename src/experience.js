@@ -1,11 +1,14 @@
 export default function Experience() {
   return (
     <>
-      <mesh>
+      {/* <mesh scale={[3, 2, 3]} position={[2, 0, 0]}> */}
+      {/* <mesh scale={1.5} position={[2, 0, 0]}> */}
+      <mesh scale={1.5} position={[2, 0, 0]} rotation-y={Math.PI * 0.25}>
         {/* <torusKnotGeometry />
         <meshNormalMaterial /> */}
         {/* passing the attributes for radius, width and height segments */}
-        <sphereGeometry args={[1.5, 32, 32]} />
+        {/* <sphereGeometry args={[1.5, 32, 32]} /> */}
+        <boxGeometry />
         {/* <meshBasicMaterial
           args={[
             {
