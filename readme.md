@@ -120,3 +120,19 @@ R3F sets the default parameter. We don't need to define it.
 
         Rotation:
         rotation-y = {Math.PI * 0.25}
+
+## Animate
+
+    The scene is drawn on every frame, but nothing is moving right now, To move things around we need to animate the meshes.
+
+    To move things around, (ex : rotate a cube), we will be using useFrame hook provided from r3f.
+    Note :  useFrame hook can only be called from a component that is inside the <Canvas />.
+
+    The callback function inside useFrame will be called on each frame before rendering the scene.
+
+    To access the cube or any other object inside the useFrame we will use reference and not react state to update the rotation parameter, as if we use state to update or animate our whole component will get re-rendered on each frame and this is not good for performance.
+
+    We can access the mesh with cubeRef.current and update it in the useFrame. Increment it's rotation.y property in the frame.
+
+    We should take care of the frame rates and not increment rotation or any animation directly.
+    We need to know how much time has passed since the last frame
