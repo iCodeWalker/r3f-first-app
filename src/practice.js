@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { useThree, extend, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import CustomObject from "./CustomObject.js";
 
 extend({ OrbitControls });
 
@@ -58,6 +59,8 @@ export default function Practice() {
         {/* <meshBasicMaterial color="green" /> */}
         <meshStandardMaterial color="green" />
       </mesh>
+
+      <CustomObject />
     </>
   );
 }

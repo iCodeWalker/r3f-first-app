@@ -167,3 +167,44 @@ R3F sets the default parameter. We don't need to define it.
 
     The core shadow (back part of the object) are little too dark, We can add an ambient light for that.
     <ambientLight />
+
+## Custom Geometries
+
+    Creating a custom Geometry is a bit harder, but it is very convenient once we understood how it works.
+
+    We are going to create a mesh with its geometry composed of random triangles.
+
+    1. We create a variable for vertices count. Ex we need 10 triangles and vertices per triangle is 3
+        const verticesCount = 10 * 3;
+
+    2. We create the Float32Array that will contain all the vertices positions, and we need to specify the size
+        of the array.
+        const positions = new Float32Array(verticesCount * 3);
+
+        multipled by 3, because we have 30 position, and for every position we need 3 values (x,y,z)
+        i.e. 3 values per vertex
+
+
+    3. Now we can fill this array with values
+        for (let i = 0; i < verticesCount _ 3; i++) {
+            positions[i] = (Math.random() - 0.5) _ 3;
+        }
+
+    4. Now we create buffer geometry and add buffer attribute, we need to specify that this attribute is the
+        position attribute, We can do that with the attach attribute
+        "attributes-position" will result in the BufferAttribute attaching itself to the geometry.attribute.position
+
+    5. We need 3 more attributes
+        count : how many vertices
+        itemSize : how many items from the array compose one vertex
+        array : the actual array
+
+## Optimized using useMemo
+
+    The code inside the CustomObject function will be called every time the component needs to be render.
+    We use useMemo for optimization, so the function didn't gets called on every render.
+
+## Compute normals
+
+    We didn't provide any normal to the geometry and the triangles don't know where they are oriented.
+    Instead of calculating and sending our own normal attribute,  we can ask Three.js to do it with computeVertexNormals on BufferGeometry
