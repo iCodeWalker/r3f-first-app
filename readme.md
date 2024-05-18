@@ -136,3 +136,20 @@ R3F sets the default parameter. We don't need to define it.
 
     We should take care of the frame rates and not increment rotation or any animation directly.
     We need to know how much time has passed since the last frame
+
+## Group
+
+    We can group objects together like we did it in three.js
+    For ex : we can group  the cube and the sphere and then animate that group like a carousel.
+
+## Orbit control
+
+    Orbit control isn't part of the default Three.js classes (in the Three variable).
+    We can't declare it like a <mesh> or <boxGeometry>
+
+    Here we are going to import it and convert it into declarative version.
+    and use the extend function from @react-three/fiber
+
+    extend function will automatically convert a Three.js class into a declarative version and make it available in JSX.
+
+    orbital control requires camera and the canvas, but it is not available to us at component level, it is availble inside the useFrame but we don't want to create orbital control on every frame. We just want to get them at the beginning. For this we can use a hook useThree().
