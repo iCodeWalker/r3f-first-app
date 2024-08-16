@@ -8,7 +8,8 @@ We write JSX and it gets rendered into three.js.
 
 React Three Fiber will also take care of a lot of default setting for us.
 
-R3F sets the default parameter. We don't need to define it.
+R3F will sets the default parameter. We don't need to define it.
+
 Ex : Creating a mesh composed of BoxGeometry and a MeshBasicMaterial
 <mesh>
 <BoxGeometry />
@@ -24,36 +25,76 @@ Ex : Creating a mesh composed of BoxGeometry and a MeshBasicMaterial
 
 ## The syntax
 
-    A simple mesh
-    <mesh>
-        <boxGeometry />
-        <meshBasicMaterial color="red"/>
-    </mesh>
+    In native Three.js : --
 
-    1. The Geometry and the material are automatically associated with the mesh.
-    2. The r3f syntax is shorter and easier to understand.
-    3. Default parameters are automatically set for us.
+        const mesh = new THREE.Mesh();
+        mesh.geometry = new THREE.BoxGeometry(1,1,1);
+        mesh.material = new THREE.MeshBasicMaterial({color: "red"})
+
+        scene.add(mesh);
+
+    In React Three Fiber : --
+
+        A simple mesh
+        <mesh>
+            <boxGeometry />
+            <meshBasicMaterial color="red"/>
+        </mesh>
+
+        1. The Geometry and the material are automatically associated with the mesh. Because it is inside the Mesh.
+        2. The r3f syntax is shorter and easier to understand.
+        3. Default parameters are automatically set for us. (Ex : we don't need to provide 1,1,1 value to box geometry)
 
 ## Change position and roatation
 
-    <mesh position = {[1,2,3]} rotation-x = {0.5}>
-        <boxGeometry />
-        <meshBasicMaterial color="red"/>
-    </mesh>
+    In native Three.js
 
-## Nested Objects
+        const mesh = new THREE.Mesh();
+        mesh.position.set(1,2,3);
+        mesh.rotation.x = 0.5;
+        mesh.geometry = new THREE.BoxGeometry(1,1,1);
+        mesh.material = new THREE.MeshBasicMaterial({color : "red"});
 
-    <group>
+        scene.add(mesh);
+
+    In React Three Fiber : --
+
         <mesh position = {[1,2,3]} rotation-x = {0.5}>
             <boxGeometry />
             <meshBasicMaterial color="red"/>
         </mesh>
 
-        <mesh position = {[1,2,3]} rotation-x = {0.5}>
-            <sphereGeometry />
-            <meshBasicMaterial color="orange"/>
-        </mesh>
-    </group>
+## Nested Objects
+
+    In native Three.js
+
+        const group = new THREE.Group();
+        scene.add(group);
+
+        const mesh1 = new THREE.Mesh();
+        mesh1.geometry = new THREE.BoxGeometry(1,1,1);
+        mesh1.material = new THREE.MeshBasicMaterial({color : "red"});
+
+        const mesh2 = new THREE.Mesh();
+        mesh2.geometry = new THREE.SpherGeometry(1,1,1);
+        mesh2.material = new THREE.MeshBasicMaterial({color : "orange"});
+
+        group.add(mesh1, mesh2);
+
+    In React Three Fiber : --
+
+
+        <group>
+            <mesh position = {[1,2,3]} rotation-x = {0.5}>
+                <boxGeometry />
+                <meshBasicMaterial color="red"/>
+            </mesh>
+
+            <mesh position = {[1,2,3]} rotation-x = {0.5}>
+                <sphereGeometry />
+                <meshBasicMaterial color="orange"/>
+            </mesh>
+        </group>
 
 ## How r3f knows how to combine components
 
@@ -62,6 +103,8 @@ Ex : Creating a mesh composed of BoxGeometry and a MeshBasicMaterial
 
     r3f uses "attach" attribute.
     The attach attribute allows the developer to assign the component to a specific property of the parent instead of trying to add() it.
+
+    NOTE : -- When we use attach property the React Three Fiber will not add it to it's parent but it will attach it to the specific property of the parent, that we will pass into the attach property.
 
     1. The <boxGeometry> and <sphereGeometry> are assigned to the geometry property of the <mesh>
     2. The <meshBasicMaterial> is assigned to the material property of the <mesh>
@@ -73,7 +116,18 @@ Ex : Creating a mesh composed of BoxGeometry and a MeshBasicMaterial
     1. If it ends with "Material", it will be assigned to the 'material' property.
     2. If it ends with "Geometry", it will be assigned to the 'geometry' property.
 
-    Otherwise ref will be going to add() it.
+    Otherwise r3f will be going to add() it.
+
+## Canvas
+
+    Creating first canvas :-
+
+    <Canvas>
+        <mesh>
+            <torusKnotGeometry />
+            <meshNormalMaterial />
+        </mesh>
+    </Canvas>
 
 ## Resizing Canvas
 
@@ -95,6 +149,7 @@ Ex : Creating a mesh composed of BoxGeometry and a MeshBasicMaterial
 
 ## three-fiber hooks
 
+    We acan use hooks that will only work in components created inside the Canvas.
     We can use hooks specific to react three fiber inside experience component.
 
 ## Creating and handling meshes
