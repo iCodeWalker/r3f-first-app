@@ -295,8 +295,16 @@ Ex : Creating a mesh composed of BoxGeometry and a MeshBasicMaterial
     2. Antialias
         Antialias is on by default.
         We can remove it by adding a gl attribute to the <Canvas> and send it an object, as we did with the camera
-    3. Alpha
+
+    3. Color encoding is a way of encoding and decoding colors so that we store color information in a more optimisied way since we are limited by the amount of possible values.
+
+    Usually want to output colors as sRGBEncoding, but we can change it to LinerEncoding if needed.
+
+    4. Alpha
         The background of the renderer is tranparent
-    4. Pixel ratio
+    5. Pixel ratio
         r3f handles the pixel ratio automatically, It's good practice to clamp it in order to avoid performance issues on devices with a vary high pixel ratio.
         dpr ={1}
+
+        we can also use an array containing minimum and maximum value
+        dpr = {[ 1, 2 ]}

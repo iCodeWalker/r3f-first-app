@@ -19,6 +19,7 @@ const App = () => {
         // antialias: false,
         // toneMapping: THREE.CineonToneMapping, // THREE.ACESFilmicToneMapping
         toneMapping: THREE.ACESFilmicToneMapping,
+        outputColorSpace: THREE.SRGBColorSpace,
       }}
       dpr={1}
     >
