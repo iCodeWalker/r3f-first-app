@@ -183,6 +183,8 @@ Ex : Creating a mesh composed of BoxGeometry and a MeshBasicMaterial
         rotation-y = {Math.PI * 0.25}
         We can target specific axes with, rotation-x = {Math.PI * 0.25}
 
+        Note : The order of the meshes are not relevant like in native three.js
+
 ## Animate
 
     The scene is drawn on every frame, but nothing is moving right now, To move things around we need to animate the meshes.
@@ -206,6 +208,8 @@ Ex : Creating a mesh composed of BoxGeometry and a MeshBasicMaterial
 
 ## Orbit control
 
+    In order to rotate the camera around the scene, we need to add OrbitalControl.
+
     Orbit control isn't part of the default Three.js classes (in the Three variable).
     We can't declare it like a <mesh> or <boxGeometry>
 
@@ -221,11 +225,11 @@ Ex : Creating a mesh composed of BoxGeometry and a MeshBasicMaterial
     Directional light
     meshBasicMaterial does not need any light, light has no effect on it.
 
-    So to see any effectof light we need to change the material. Ex : meshStandardMaterial.
+    So to see any effect of light we need to change the material. Ex : meshStandardMaterial.
 
-    By deafult the light comes from straight above, We can change this with the position property
+    Note : By deafult the light comes from straight above, We can change this with the position property
       <directionalLight  position={[1,2,3]}/>
-      We can also change the color and the intensity
+      We can also change the properties like color and the intensity
 
     The core shadow (back part of the object) are little too dark, We can add an ambient light for that.
     <ambientLight />

@@ -3,7 +3,7 @@ import { useThree, extend, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import CustomObject from "./CustomObject.js";
 
-extend({ OrbitControls });
+extend({ OrbitControls: OrbitControls });
 
 export default function Practice() {
   // Retrieve state from three
@@ -21,7 +21,7 @@ export default function Practice() {
     cubeRef.current.rotation.y += delta;
 
     //  rotate the whole group
-    // groupRef.current.rotation.y += delta;
+    groupRef.current.rotation.y += delta;
 
     // state : state contains information about our Three.js environment like the camera, the renderer, the scene etc
     // delta : contains the time spent since the last frame in seconds.
