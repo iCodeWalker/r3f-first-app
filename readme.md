@@ -240,6 +240,12 @@ Ex : Creating a mesh composed of BoxGeometry and a MeshBasicMaterial
 
     We are going to create a mesh with its geometry composed of random triangles.
 
+    Steps:
+    1. Create a Float32Array.
+    2. Put a bunch of values in it.
+    3. Create a BufferAttribute out of this Float32Array.
+    4. Add it to the attributes of the BufferGeometry.
+
     1. We create a variable for vertices count. Ex we need 10 triangles and vertices per triangle is 3
         const verticesCount = 10 * 3;
 
@@ -273,7 +279,8 @@ Ex : Creating a mesh composed of BoxGeometry and a MeshBasicMaterial
 ## Compute normals
 
     We didn't provide any normal to the geometry and the triangles don't know where they are oriented.
-    Instead of calculating and sending our own normal attribute,  we can ask Three.js to do it with computeVertexNormals on BufferGeometry
+
+    Instead of calculating and sending our own normal attribute,  we can ask Three.js to do it with "computeVertexNormals" on BufferGeometry
 
 ## Canvas Settings
 

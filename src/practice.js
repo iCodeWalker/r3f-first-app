@@ -66,6 +66,7 @@ export default function Practice() {
         <meshStandardMaterial color="green" />
       </mesh>
 
+      {/* Custom Mesh */}
       <CustomObject />
     </>
   );

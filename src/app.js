@@ -10,7 +10,7 @@ const App = () => {
       // orthographic
       camera={{
         fov: 45,
-        // zoom: 100,
+        // zoom: 100, works with orthographic camera
         near: 0.1,
         far: 200,
         position: [3, 2, 6],
