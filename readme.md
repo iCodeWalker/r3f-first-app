@@ -149,7 +149,7 @@ Ex : Creating a mesh composed of BoxGeometry and a MeshBasicMaterial
 
 ## three-fiber hooks
 
-    We acan use hooks that will only work in components created inside the Canvas.
+    We can use hooks that will only work in components created inside the Canvas.
     We can use hooks specific to react three fiber inside experience component.
 
 ## Creating and handling meshes
@@ -161,9 +161,10 @@ Ex : Creating a mesh composed of BoxGeometry and a MeshBasicMaterial
         sphereGeometry :
             The first three parameters of SphereGeometry are radius, widthSegments and heightSegments
             r3f provides the default values to this parameters but we can change them.
+
             We can change the constructor parameters by providing an array to the "args" attributes and follow the parameters order(radius, widthSegments, heightSegments)
 
-            In case of geometry, we must be careful with the values of radius, widthSegment and heightSegment, we must not update these values too much or animate them, because each change will result in a whole new geometry built again. It is not good for performance.
+            Note : In case of geometry, we must be careful with the values of radius, widthSegment and heightSegment, we must not update these values too much or animate them, because each change will result in a whole new geometry built again. It is not good for performance.
 
         meshBasicMaterial :
             meshBasicMaterial only requires one parameter and it's an object.
@@ -180,6 +181,7 @@ Ex : Creating a mesh composed of BoxGeometry and a MeshBasicMaterial
 
         Rotation:
         rotation-y = {Math.PI * 0.25}
+        We can target specific axes with, rotation-x = {Math.PI * 0.25}
 
 ## Animate
 

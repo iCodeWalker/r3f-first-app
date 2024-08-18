@@ -4,6 +4,9 @@ export default function Experience() {
       {/* <mesh scale={[3, 2, 3]} position={[2, 0, 0]}> */}
       {/* <mesh scale={1.5} position={[2, 0, 0]}> */}
       <mesh scale={1.5} position={[2, 0, 0]} rotation-y={Math.PI * 0.25}>
+        {/* We can target specific axes
+      <mesh scale={1.5} position-x={2} rotation-y={Math.PI * 0.25}> */}
+
         {/* <torusKnotGeometry />
         <meshNormalMaterial /> */}
         {/* passing the attributes for radius, width and height segments */}
